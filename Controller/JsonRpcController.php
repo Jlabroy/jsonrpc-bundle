@@ -5,7 +5,7 @@ namespace Wa72\JsonRpcBundle\Controller;
 use Symfony\Component\DependencyInjection\Exception\ServiceNotFoundException;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\DependencyInjection\ContainerAware;
+use Symfony\Component\DependencyInjection\ContainerAwareTrait;
 
 /**
  * Controller for executing JSON-RPC 2.0 requests
@@ -41,8 +41,11 @@ use Symfony\Component\DependencyInjection\ContainerAware;
  * @author Christoph Singer
  *
  */
-class JsonRpcController extends ContainerAware
+class JsonRpcController
 {
+
+    use ContainerAwareTrait;
+
     const PARSE_ERROR = -32700;
     const INVALID_REQUEST = -32600;
     const METHOD_NOT_FOUND = -32601;
