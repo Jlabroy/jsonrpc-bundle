@@ -147,7 +147,7 @@ class JsonRpcController
                     if (isset($params[$rp->name])) {
                         $newparams[] = $params[$rp->name];
                     } else {
-                        $newparams[] = null;
+                        $newparams[] = $rp->getDefaultValue();
                     }
                 }
                 $params = $newparams;
